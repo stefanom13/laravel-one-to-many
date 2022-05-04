@@ -47,5 +47,10 @@
 
             <button type="submit" class="btn btn-warning">Salva!</button>
         </form>
+        <form action="{{route('admin.post.destroy',$post)}}" method="POST" class="pt-2">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger ">Elimina!</button>
+        </form>
     </div>
 @endsection
