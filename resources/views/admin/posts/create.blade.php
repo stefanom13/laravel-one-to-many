@@ -15,6 +15,19 @@
                     <div class="invalid-feedback">{{ 'errore titolo' }}</div>
                 @enderror
             </div>
+            <div class="form-group">
+                <label for="category_id">Categoria</label>
+                <select class="custom-select @error('category_id') is-invalid @enderror" id="category_id" name="category_id">
+                    <option value="">Seleziona Categoria</option>
+                    @foreach ($categories as $category)
+                    <option {{ old('category_id') && old('category_id') == $category->id ? 'selected' : ''}} value="{{$category->id}}">{{$category->name}}</option>  
+                    @endforeach
+                </select>
+                @error('category_id')
+                    <div class="invalid-feedback">{{ 'Errore' }}</div>
+                @enderror
+            </div>
+           
              {{-- info contenuto articoli --}}
             <div class="form-group">
                 <label for="content">Contenuto Articolo*</label>

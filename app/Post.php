@@ -11,7 +11,13 @@ class Post extends Model
         'content',
         'published_at',
         'slug',
+        'category_id',
     ];
+
+    public function category(){
+
+        return $this->belongsTo('App\Category');
+    }
 
     public static function getUniqueSlug($title)
     {
@@ -30,4 +36,6 @@ class Post extends Model
         }
         return $slug;
     }
-}
+
+ 
+ }

@@ -12,6 +12,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Titolo</th>
                 <th scope="col">Slug</th>
+                <th scope="col">Categorie</th>
                 <th scope="col">Data di Pubblicazione</th>
                 <th scope="col">Data Creazione</th>
                 <th scope="col">Click</th>
@@ -23,6 +24,7 @@
                     <td>{{$post->id}}</td>
                     <td>{{$post->title}}</td>
                     <td>{{$post->slug}}</td>
+                    <td>{{ $post->category ? $post->category->name : '-'}}</td>
                     <td>{{$post->published_at}}</td>
                     <td>{{$post->created_at}}</td>
                     <td><button type="button" class="btn btn-outline-success"><a href="{{ route('admin.post.edit',$post)}}">Edit</a></button></td>
