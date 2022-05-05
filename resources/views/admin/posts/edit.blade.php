@@ -14,16 +14,29 @@
             <div class="form-group">
                 <label for="title">Titolo*</label>
                 <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title"
-                    value="{{ old('title') ?:  $post->title }}" aria-describedby="emailHelp">
+                    value="{{ old('title',$post->title) }}" aria-describedby="emailHelp">
                 @error('title')
                     <div class="invalid-feedback">{{ 'errore titolo' }}</div>
+                @enderror
+            </div>
+            {{-- info categories --}}
+            <div class="form-group">
+                <label for="category_id">Categoria</label>
+                <select class="custom-select @error('category_id') is-invalid @enderror" id="category_id" name="category_id">
+                    <option value="">Seleziona Categoria</option>
+                    @foreach ($categories as $category)
+                    <option {{ old('category_id',optional($post->category)->id) == $category->id  ? 'selected' : ''}} value="{{$category->id}}">{{$category->name}}</option>  
+                    @endforeach
+                </select>
+                @error('category_id')
+                    <div class="invalid-feedback">{{ 'Errore' }}</div>
                 @enderror
             </div>
             {{-- info contenuto articoli --}}
             <div class="form-group">
                 <label for="content">Contenuto Articolo*</label>
                 <textarea class="form-control  @error('content') is-invalid @enderror" id="content" name="content"
-                    rows="3">{{ old('content')?:  $post->content }}</textarea>
+                    rows="3">{{ old('content',$post->content) }}</textarea>
                 @error('title')
                     <div class="invalid-feedback">{{ 'Errore nel inserimento articolo' }}</div>
                 @enderror

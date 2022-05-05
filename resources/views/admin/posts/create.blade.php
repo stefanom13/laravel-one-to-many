@@ -15,6 +15,7 @@
                     <div class="invalid-feedback">{{ 'errore titolo' }}</div>
                 @enderror
             </div>
+            {{-- info categorie --}}
             <div class="form-group">
                 <label for="category_id">Categoria</label>
                 <select class="custom-select @error('category_id') is-invalid @enderror" id="category_id" name="category_id">
